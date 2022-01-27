@@ -1,7 +1,12 @@
 import React from "react";
+import styled from "styled-components";
+
+const MainContainer = styled.div`
+  background: ${(props) => props.theme.body};
+`;
 
 const Main = () => {
-  return <div>Main component/Page</div>;
+  return <MainContainer>Main component/Page</MainContainer>;
 };
 
 export default Main;
