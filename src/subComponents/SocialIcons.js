@@ -23,7 +23,8 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.color === "dark" ? DarkTheme.text : DarkTheme.body};
 `;
 
 const SocialIcons = (props) => {
@@ -87,7 +88,7 @@ const SocialIcons = (props) => {
         </NavLink>
       </div>
 
-      <Line />
+      <Line color={props.theme} />
     </Icons>
   );
 };
