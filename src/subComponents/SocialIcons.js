@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Github, Instagram, Tiktok, YouTube } from "../components/AllSvgs";
+import { DarkTheme } from "../components/Themes";
 
 const Icons = styled.div`
   display: flex;
@@ -22,10 +23,11 @@ const Icons = styled.div`
 const Line = styled.span`
   width: 2px;
   height: 8rem;
-  background-color: ${(props) => props.theme.text};
+  background-color: ${(props) =>
+    props.color === "dark" ? DarkTheme.text : DarkTheme.body};
 `;
 
-const SocialIcons = () => {
+const SocialIcons = (props) => {
   return (
     <Icons>
       <div>
@@ -34,7 +36,11 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://github.com/hayata-0" }}
         >
-          <Github width={25} height={25} fill="currentColor" />
+          <Github
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
+          />
         </NavLink>
       </div>
 
@@ -44,7 +50,11 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://www.tiktok.com/@divyan1454?lang=ja-JP" }}
         >
-          <Tiktok width={25} height={25} fill="currentColor" />
+          <Tiktok
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
+          />
         </NavLink>
       </div>
 
@@ -54,7 +64,11 @@ const SocialIcons = () => {
           target="_blank"
           to={{ pathname: "https://www.instagram.com/hyyt_div/" }}
         >
-          <Instagram width={25} height={25} fill="currentColor" />
+          <Instagram
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
+          />
         </NavLink>
       </div>
 
@@ -66,11 +80,15 @@ const SocialIcons = () => {
             pathname: "https://youtube.com/channel/UCesyKDkQd610Sr4dJARSzCw",
           }}
         >
-          <YouTube width={25} height={25} fill="currentColor" />
+          <YouTube
+            width={25}
+            height={25}
+            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
+          />
         </NavLink>
       </div>
 
-      <Line />
+      <Line color={props.theme} />
     </Icons>
   );
 };
