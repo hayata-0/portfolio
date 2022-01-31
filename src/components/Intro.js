@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Me from "../assets/Images/profile-pic.png";
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -68,7 +68,11 @@ const Text = styled.div`
 
 const Intro = () => {
   return (
-    <Box>
+    <Box
+      initial={{ height: 0 }}
+      animate={{ height: "45vh" }}
+      transition={{ type: "spring", duration: 2, delay: 1 }}
+    >
       <SubBox>
         <Text>
           <h1>Hi,</h1>
@@ -77,9 +81,13 @@ const Intro = () => {
         </Text>
       </SubBox>
       <SubBox>
-        <div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2 }}
+        >
           <img className="pic" src={Me} alt="Profile Pic" />
-        </div>
+        </motion.div>
       </SubBox>
     </Box>
   );
