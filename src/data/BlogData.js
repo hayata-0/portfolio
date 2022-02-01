@@ -3,7 +3,7 @@
 export const Blogs = [
   {
     id: 1,
-    name: "クローゼットアプリ「papatto〜ぱぱっと〜」",
+    name: "クローゼットアプリ「papatto」",
     tags: ["swift", "firebase"],
     date: "24 October, 2021",
     imgSrc:
