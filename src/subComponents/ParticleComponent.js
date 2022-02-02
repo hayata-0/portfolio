@@ -2,6 +2,9 @@ import React from "react";
 import Particles from "react-particles-js";
 import styled from "styled-components";
 
+import configDark from "../config/particlesjs-config.json";
+import configLight from "../config/particlesjs-config-light.json";
+
 const Box = styled.div`
   position: absolute;
   top: 0;
@@ -12,7 +15,11 @@ const Box = styled.div`
 `;
 
 const ParticleComponent = () => {
-  return <Box>Particle Component</Box>;
+  return (
+    <Box>
+      <Particles />
+    </Box>
+  );
 };
 
 export default ParticleComponent;
