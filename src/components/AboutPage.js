@@ -8,6 +8,8 @@ import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 
+import astronaut from "../assets/Images/spaceman.pmg";
+
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
   width: 100vw;
@@ -24,6 +26,10 @@ const AboutPage = () => {
         <SocialIcons theme="dark" />
         <PowerButton />
         <ParticleComponent theme="dark" />
+
+        <Spaceman>
+          <img src="" alt="spaceman" />
+        </Spaceman>
       </Box>
     </ThemeProvider>
   );
