@@ -4,6 +4,7 @@ import { LightTheme } from "./Themes.js";
 import { Design, Develope } from "./AllSvgs";
 
 import LogoComponent from "../subComponents/LogoComponent";
+import SocialIcons from "../subComponents/SocialIcons";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
