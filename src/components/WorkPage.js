@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes.js";
 
@@ -8,7 +8,7 @@ import PowerButton from "../subComponents/PowerButton";
 
 import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card.js";
-import { useEffect, useRef } from "react/cjs/react.development";
+import { YinYang } from "./AllSvgs.js";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -26,6 +26,16 @@ const Main = styled.ul`
   display: flex;
 
   color: white;
+`;
+
+const Rotate = styled.span`
+  display: block;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
 `;
 
 const WarkPage = () => {
@@ -55,6 +65,9 @@ const WarkPage = () => {
             <Card key={d.id} data={d} />
           ))}
         </Main>
+        <Rotate>
+          <YinYang width={80} height={80} fill={DarkTheme.text} />
+        </Rotate>
       </Box>
     </ThemeProvider>
   );
