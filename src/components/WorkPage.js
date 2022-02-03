@@ -13,7 +13,7 @@ import { YinYang } from "./AllSvgs.js";
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
 
-  height: 400vh;
+  height: 300vh;
   position: relative;
   overflow: hidden;
 `;
@@ -40,12 +40,16 @@ const Rotate = styled.span`
 
 const WarkPage = () => {
   const ref = useRef(null);
+  const yinyang = useRef(null);
 
   useEffect(() => {
     let element = ref.current;
 
     const rotate = () => {
       element.style.transform = `translateX(${-window.pageYOffset}px)`;
+
+      yinyang.current.style.transform =
+        "rotate(" + -window.pageYOffset + "deg)";
     };
 
     window.addEventListener("scroll", rotate);
@@ -65,7 +69,7 @@ const WarkPage = () => {
             <Card key={d.id} data={d} />
           ))}
         </Main>
-        <Rotate>
+        <Rotate ref={yinyang}>
           <YinYang width={80} height={80} fill={DarkTheme.text} />
         </Rotate>
       </Box>
