@@ -7,6 +7,7 @@ import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 
 import { Work } from "../data/WorkData";
+import Card from "../subComponents/Card.js";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -36,7 +37,7 @@ const WarkPage = () => {
 
         <Main>
           {Work.map((d) => (
-            <h1>Work Data</h1>
+            <Card key={d.id} data={d} />
           ))}
         </Main>
       </Box>
