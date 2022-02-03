@@ -16,6 +16,16 @@ const Box = styled.div`
   overflow: hidden;
 `;
 
+const Main = styled.ul`
+  position: fixed;
+  top: 12rem;
+  left: calc(10rem + 15vw);
+  height: 40vh;
+  display: flex;
+
+  color: white;
+`;
+
 const WarkPage = () => {
   return (
     <ThemeProvider theme={DarkTheme}>
@@ -23,6 +33,12 @@ const WarkPage = () => {
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
         <PowerButton />
+
+        <Main>
+          {Work.map((d) => (
+            <h1>Work Data</h1>
+          ))}
+        </Main>
       </Box>
     </ThemeProvider>
   );
