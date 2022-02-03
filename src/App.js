@@ -10,6 +10,7 @@ import BlogPage from "./components/BlogPage";
 import MySkillsPage from "./components/MySkillsPage";
 import WorkPage from "./components/WorkPage";
 import { AnimatePresence } from "framer-motion";
+import SoundBar from "./subComponents/SoundBar";
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
     <>
       <GlobalStyle />
       <ThemeProvider theme={LightTheme}>
+        <SoundBar />
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             <Route exact path="/" component={Main} />
