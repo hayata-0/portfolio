@@ -9,6 +9,7 @@ import { Blogs } from "../data/BlogData";
 import BlogComponent from "./BlogComponent";
 import AnchorComponent from "../subComponents/Anchor";
 import { useEffect } from "react/cjs/react.development";
+import BigTitle from "../subComponents/BigTitle";
 
 const MainContainer = styled.div`
   background-image: url(${img});
@@ -61,6 +62,7 @@ const BlogPage = () => {
             })}
           </Grid>
         </Center>
+        <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
   );

@@ -8,6 +8,7 @@ import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 
 import astronaut from "../assets/Images/spaceman.png";
+import BigTitle from "../subComponents/BigTitle.js";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -88,6 +89,7 @@ const AboutPage = () => {
           <br />
           また、UI・UXの観点もトップレベルを目指していきたいと思います。
         </Main>
+        <BigTitle text="ABOUT" top="10%" left="5%" />
       </Box>
     </ThemeProvider>
   );
