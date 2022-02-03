@@ -8,11 +8,12 @@ import PowerButton from "../subComponents/PowerButton";
 
 import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card.js";
+import { useEffect, useRef } from "react/cjs/react.development";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
-  width: 100vw;
-  height: 100vh;
+
+  height: 400vh;
   position: relative;
   overflow: hidden;
 `;
@@ -28,6 +29,20 @@ const Main = styled.ul`
 `;
 
 const WarkPage = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    let element = ref.current;
+
+    const rotate = () => {
+      element.style.transform = `translateX(${-window.pageYOffset}px)`;
+    };
+
+    window.addEventListener("scroll", rotate);
+
+    return () => window.removeEventListener("scroll", rotate);
+  }, []);
+
   return (
     <ThemeProvider theme={DarkTheme}>
       <Box>
@@ -35,7 +50,7 @@ const WarkPage = () => {
         <SocialIcons theme="dark" />
         <PowerButton />
 
-        <Main>
+        <Main ref={ref}>
           {Work.map((d) => (
             <Card key={d.id} data={d} />
           ))}
