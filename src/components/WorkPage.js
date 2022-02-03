@@ -9,13 +9,15 @@ import PowerButton from "../subComponents/PowerButton";
 import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card.js";
 import { YinYang } from "./AllSvgs.js";
+import BigTitle from "../subComponents/BigTitle.js";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
 
   height: 300vh;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
 `;
 
 const Main = styled.ul`
@@ -72,6 +74,7 @@ const WarkPage = () => {
         <Rotate ref={yinyang}>
           <YinYang width={80} height={80} fill={DarkTheme.text} />
         </Rotate>
+        <BigTitle text="WORK" top="10%" right="20%" />
       </Box>
     </ThemeProvider>
   );
