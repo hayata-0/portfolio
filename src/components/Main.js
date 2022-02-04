@@ -128,6 +128,8 @@ const Main = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
+  const media = useMedia({ maxWidth: "425px" });
   return (
     <MainContainer>
       <DarkDiv click={click} />
@@ -139,8 +141,8 @@ const Main = () => {
         <Center click={click}>
           <YinYang
             onClick={() => handleClick()}
-            width={click ? 120 : 200}
-            height={click ? 120 : 200}
+            width={media ? (click ? 80 : 160) : click ? 120 : 200}
+            height={media ? (click ? 80 : 160) : click ? 120 : 200}
             fill="currentColor"
           />
           <span>click here</span>
