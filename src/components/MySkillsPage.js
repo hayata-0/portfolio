@@ -8,6 +8,7 @@ import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
 import ParticleComponent from "../subComponents/ParticleComponent";
 import BigTitle from "../subComponents/BigTitle.js";
+import { useMedia } from "use-media";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -17,6 +18,10 @@ const Box = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @media screen and (max-width: 425px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
 
 const Main = styled.div`
@@ -39,6 +44,13 @@ const Main = styled.div`
     color: ${(props) => props.theme.body};
     background-color: ${(props) => props.theme.text};
   }
+
+  @media screen and (max-width: 425px) {
+    width: 60vw;
+    height: 120vh;
+    margin-top: 6rem;
+    margin-left: 3rem;
+  }
 `;
 
 const Title = styled.h2`
@@ -55,6 +67,10 @@ const Title = styled.h2`
 
   & > *:first-child {
     margin-right: 1rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: calc(1em + 0.5vw);
   }
 `;
 
@@ -79,6 +95,7 @@ const Description = styled.div`
 `;
 
 const MySkillsPage = () => {
+  const media = useMedia({ maxWidth: "425px" });
   return (
     <ThemeProvider theme={LightTheme}>
       <Box>
@@ -88,7 +105,7 @@ const MySkillsPage = () => {
         <ParticleComponent theme="light" />
         <Main>
           <Title>
-            <Design width={40} height={40} />
+            <Design width={media ? 30 : 40} height={media ? 30 : 40} />
             Application Developer
           </Title>
           <Description>
@@ -105,7 +122,7 @@ const MySkillsPage = () => {
         </Main>
         <Main>
           <Title>
-            <Develope width={40} height={40} />
+            <Develope width={media ? 30 : 40} height={media ? 30 : 40} />
             Frontend Developer
           </Title>
           <Description>
