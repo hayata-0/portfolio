@@ -61,6 +61,12 @@ const Main = styled.div`
   top: 10rem;
   font-family: "Ubutntu Mono", monospace;
   font-style: italic;
+
+  @media screen and (max-width: 425px) {
+    width: 40vw;
+    height: 50vh;
+    top: 15rem;
+  }
 `;
 
 const AboutPage = () => {
