@@ -50,7 +50,6 @@ const Main = styled.div`
   height: 60vh;
   z-index: 3;
   line-height: 1.5;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,9 +59,14 @@ const Main = styled.div`
   position: absolute;
   left: calc(5rem + 5vw);
   top: 10rem;
-
   font-family: "Ubutntu Mono", monospace;
   font-style: italic;
+
+  @media screen and (max-width: 425px) {
+    width: 40vw;
+    height: 50vh;
+    top: 15rem;
+  }
 `;
 
 const AboutPage = () => {

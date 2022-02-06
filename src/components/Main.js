@@ -7,6 +7,7 @@ import SocialIcons from "../subComponents/SocialIcons";
 import { YinYang } from "./AllSvgs";
 import Intro from "./Intro";
 import { motion } from "framer-motion";
+import { useMedia } from "use-media";
 
 const MainContainer = styled.div`
   background: ${(props) => props.theme.body};
@@ -14,7 +15,6 @@ const MainContainer = styled.div`
   height: 100vh;
   overflow: hidden;
   position: relative;
-
   h2,
   h3,
   h4,
@@ -64,7 +64,6 @@ const BottomBar = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-
   display: flex;
   justify-content: space-evenly;
 `;
@@ -95,22 +94,18 @@ const Center = styled.button`
   top: ${(props) => (props.click ? "85%" : "50%")};
   left: ${(props) => (props.click ? "92%" : "50%")};
   transform: translate(-50%, -50%);
-
   border: none;
   outline: none;
   background-color: transparent;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: all 1s ease;
-
   & > :first-child {
     animation: ${rotate} infinite 1.5s linear;
   }
-
   & > :last-child {
     display: ${(props) => (props.click ? "none" : "inline-block")}
     padding-top: 1rem;
@@ -133,6 +128,8 @@ const Main = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
+  const media = useMedia({ maxWidth: "425px" });
   return (
     <MainContainer>
       <DarkDiv click={click} />
@@ -144,8 +141,8 @@ const Main = () => {
         <Center click={click}>
           <YinYang
             onClick={() => handleClick()}
-            width={click ? 120 : 200}
-            height={click ? 120 : 200}
+            width={media ? (click ? 80 : 160) : click ? 120 : 200}
+            height={media ? (click ? 80 : 160) : click ? 120 : 200}
             fill="currentColor"
           />
           <span>click here</span>

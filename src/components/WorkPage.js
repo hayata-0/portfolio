@@ -11,6 +11,7 @@ import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card.js";
 import { YinYang } from "./AllSvgs.js";
 import BigTitle from "../subComponents/BigTitle.js";
+import { useMedia } from "use-media";
 
 const Box = styled.div`
   background-color: ${(props) => props.theme.body};
@@ -19,6 +20,10 @@ const Box = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 425px) {
+    height: 350vh;
+  }
 `;
 
 const Main = styled(motion.ul)`
@@ -39,6 +44,10 @@ const Rotate = styled.span`
   width: 80px;
   height: 80px;
   z-index: 1;
+  @media screen and (max-width: 425px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 //motionの設定
@@ -57,6 +66,8 @@ const container = {
 const WarkPage = () => {
   const ref = useRef(null);
   const yinyang = useRef(null);
+
+  const media = useMedia({ maxWidth: "425px" });
 
   useEffect(() => {
     let element = ref.current;
@@ -86,7 +97,11 @@ const WarkPage = () => {
           ))}
         </Main>
         <Rotate ref={yinyang}>
-          <YinYang width={80} height={80} fill={DarkTheme.text} />
+          <YinYang
+            width={media ? 60 : 80}
+            height={media ? 60 : 80}
+            fill={DarkTheme.text}
+          />
         </Rotate>
         <BigTitle text="WORK" top="10%" right="20%" />
       </Box>

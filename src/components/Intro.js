@@ -8,11 +8,9 @@ const Box = styled(motion.div)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
   width: 65vw;
   height: 45vh;
   display: flex;
-
   background: linear-gradient(
         to right,
         ${(props) => props.theme.body} 50%,
@@ -27,18 +25,18 @@ const Box = styled(motion.div)`
       top;
   background-repeat: no-repeat;
   background-size: 100% 2px;
-
   border-left: 2px solid ${(props) => props.theme.body};
   border-right: 2px solid ${(props) => props.theme.text};
-
   z-index: 1;
+
+  @media screen and (max-width: 425px) {
+  }
 `;
 
 const SubBox = styled.div`
   width: 50%;
   position: relative;
   display: flex;
-
   .pic {
     position: absolute;
     bottom: 0;
@@ -47,6 +45,9 @@ const SubBox = styled.div`
     width: 100%;
     height: auto;
   }
+
+  @media screen and (max-width: 425px) {
+  }
 `;
 
 const Text = styled.div`
@@ -54,11 +55,9 @@ const Text = styled.div`
   color: ${(props) => props.theme.body};
   padding: 2rem;
   cursor: pointer;
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
   & > *:last-child {
     color: ${(props) => `rgba(${props.theme.bodyRgba},0.6)`};
     font-size: calc(0.5rem + 1.5vw);
