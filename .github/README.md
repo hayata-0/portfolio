@@ -33,17 +33,12 @@
 git clone "https://github.com/hayata-0/portfolio.git"
 ```
 
-2. ディレクトリに移動
-```html
-cd ディレクトリ
-```
-
-3. npm installを行う
+2. npm installを行う
 ```html
 npm install
 ```
 
-4. npm start で起動をする
+3. npm start で起動をする
 ```html
 npm start
 ```
